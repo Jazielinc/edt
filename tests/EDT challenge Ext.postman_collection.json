@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "959f4220-f82e-46cc-976c-48765851e2b5",
+		"name": "EDT challenge Ext",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3883621"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"f73cfbce-60b8-4e2c-9ec7-de8dbb5e0a503\",\r\n    \"rating\": 1,\r\n    \"name\": \"Palacios - Montez\",\r\n    \"site\": \"https://felipe.org\",\r\n    \"email\": \"Rosalia.Estvez@nearbpo.com\",\r\n    \"phone\": \"590 666 046\",\r\n    \"street\": \"7676 Raquel Solar\",\r\n    \"city\": \"Marco Antonioton\",\r\n    \"state\": \"Michoacan\",\r\n    \"lat\": 19.4410634069499,\r\n    \"lng\": -99.1304676964673\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://edt-challenge.onrender.com/restaurant",
+					"protocol": "https",
+					"host": [
+						"edt-challenge",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://edt-challenge.onrender.com/restaurant",
+					"protocol": "https",
+					"host": [
+						"edt-challenge",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://edt-challenge.onrender.com/f73cfbce-60b8-4e2c-9ec7-de8dbb5e0a503",
+					"protocol": "https",
+					"host": [
+						"edt-challenge",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"f73cfbce-60b8-4e2c-9ec7-de8dbb5e0a503"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"f73cfbce-60b8-4e2c-9ec7-de8dbb5e0a503\",\r\n    \"rating\": 1,\r\n    \"name\": \"Pedro - Picapiedra\",\r\n    \"site\": \"https://felipe.org\",\r\n    \"email\": \"Rosalia.Estvez@nearbpo.com\",\r\n    \"phone\": \"590 666 046\",\r\n    \"street\": \"7676 Raquel Solar\",\r\n    \"city\": \"Marco Antonioton\",\r\n    \"state\": \"Michoacan\",\r\n    \"lat\": 19.4410634069499,\r\n    \"lng\": -99.1304676964673\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://edt-challenge.onrender.com/update/f73cfbce-60b8-4e2c-9ec7-de8dbb5e0a503",
+					"protocol": "https",
+					"host": [
+						"edt-challenge",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"update",
+						"f73cfbce-60b8-4e2c-9ec7-de8dbb5e0a503"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Statistics",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://edt-challenge.onrender.com/restaurants/statistics?latitude=20&longitude=-99.13&radius=61800",
+					"protocol": "https",
+					"host": [
+						"edt-challenge",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "20"
+						},
+						{
+							"key": "longitude",
+							"value": "-99.13"
+						},
+						{
+							"key": "radius",
+							"value": "61800"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

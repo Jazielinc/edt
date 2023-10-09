@@ -3,11 +3,11 @@ import math
 from sqlalchemy import text
 from fastapi import FastAPI, Depends, exceptions, Response
 from sqlalchemy.orm import Session
-from db import get_db, engine
+from db.db import get_db, engine
 # import models
-from models import *
-from schemas import Restaurants
-import control
+from db.models import *
+from schemas.schemas import Restaurants
+import control.control as control
 
 Base.metadata.create_all(bind=engine)
 

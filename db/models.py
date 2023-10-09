@@ -5,7 +5,7 @@ from sqlalchemy import Column
 from sqlalchemy import text
 from sqlalchemy import TIMESTAMP
 
-from db import Base
+from .db import Base
 
 
 class Restaurant(Base):
