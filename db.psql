@@ -1,0 +1,34 @@
+CREATE DATABASE edtdb
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE public.restaurants
+(
+    id text NOT NULL,
+    rating integer,
+    name text,
+    site text,
+    email text,
+    phone text,
+    street text,
+    city text,
+    state text,
+    lat numeric,
+    lng numeric,
+    PRIMARY KEY (id)
+);
+
+CREATE EXTENSION postgis;
+
+ALTER TABLE IF EXISTS public.restaurants
+    OWNER to postgres;
+
+create index on restaurants using gist (geo);
+
+-- test query
+SELECT *
+FROM restaurants r
+WHERE ST_DWithin(ST_MakePoint(-99.13, 20),r.geo, 61800);
