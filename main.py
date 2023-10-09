@@ -7,6 +7,7 @@ from db import get_db, engine
 # import models
 from models import *
 from schemas import Restaurants
+import control
 
 Base.metadata.create_all(bind=engine)
 
@@ -65,42 +66,13 @@ def statistics(latitude: float, longitude: float, radius: float, db: Session = D
         WHERE ST_DWithin(ST_MakePoint(lng, lat)::geography, ST_MakePoint({}, {})::geography, {});
     """.format(longitude, latitude, radius))).all()
 
-    response = {
-        'count' : len(restaurants),
-        'avg': None,
-        'std': None
-    }
-
-    avg = {
-        '0': 0,
-        '1': 0,
-        '2': 0,
-        '3': 0,
-        '4': 0,
-        }
-    for row in restaurants: 
-        avg[str(row[1])] += 1
+    if not restaurants:
+        raise exceptions.HTTPException(status_code=204, detail=f"No data found!")
     
-    final_avg = 0
-    total_ = 0
-    std_list = []
-    for key in avg:
-        final_avg = avg[key]*int(key)
-        total_ += avg[key]
-        std_list.append(avg[key])
-    
-    final_avg = final_avg/total_
-
-    response['avg'] = final_avg
-
-    mean = sum(std_list) / len(std_list)
-    var = sum((l-mean)**2 for l in std_list) / len(std_list)
-    st_dev = math.sqrt(var)
-
-    response['std'] = st_dev
+    else:
+        response = control._do_data(restaurants)
 
     return response
-
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
