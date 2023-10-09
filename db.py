@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DB_URL = "postgres://jazielroot:yYWNzHgCLgCfyFVe16TRRo6elcjSawgp@dpg-ckg278eafg7c73d9qal0-a/edt_db"
+DB_URL = "postgresql://jazielroot:yYWNzHgCLgCfyFVe16TRRo6elcjSawgp@dpg-ckg278eafg7c73d9qal0-a/edt_db"
 
 CONTROLLED_LEVELV_NUM = 29
 
